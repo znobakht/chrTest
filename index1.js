@@ -49,7 +49,10 @@ async function main() {
     // console.log(outs);
 
     const tmp1 = await collectionMain1.findOne();
-    const keys = Object.keys(tmp1);
+    let keys = Object.keys(tmp1);
+
+    const unwantedKeys = ['_id','DeviceName','StartTime','DateTime'];
+    keys = keys.filter(ele => !unwantedKeys.includes(ele));
     // console.log(keys);
     // console.log(tmp1[keys[3]]);
 
@@ -67,7 +70,7 @@ async function main() {
       // console.log(tmp1)
       // console.log(tmp2)
       if (tmp1 && tmp2) {
-        for (let j = 3; j < keys.length; j++) {
+        for (let j = 0; j < keys.length; j++) {
         //   console.log(j);
           if (tmp1[keys[j]] !== tmp2[keys[j]]) {
             await diffrenceCollection.insertOne({

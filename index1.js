@@ -72,6 +72,7 @@ async function main() {
           if (tmp1[keys[j]] !== tmp2[keys[j]]) {
             await diffrenceCollection.insertOne({
               procedureMessage: outs[i]["Procedure Messages"],
+              fieldName: keys[j],
               mainValue: tmp1[keys[j]],
               bhnValue: tmp2[keys[j]],
               fileNumber: 1

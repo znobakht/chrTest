@@ -53,7 +53,7 @@ const main = async () => {
       console.log(PMIDS.length);
 
       for (let j = 0; j < PMIDS.length; j++) {
-        console.log(j);
+        // console.log(j);
         const PMID = PMIDS[j]["Procedure Messages"];
 
         const tmp1 = await collectionMain.findOne({

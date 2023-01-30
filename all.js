@@ -1,14 +1,13 @@
 import { MongoClient } from "mongodb";
-import { mongoUrl } from "./config/keys.js";
-
-import { srcDBName } from "./config/keys.js";
-import { dstDBName } from "./config/keys.js";
-
-import { mainColTmp } from "./config/keys.js";
-import { BHNColTmp } from "./config/keys.js";
-
-import { startNumber } from "./config/keys.js";
-import { endNumber } from "./config/keys.js";
+import {
+  mongoUrl,
+  srcDBName,
+  dstDBName,
+  mainColTmp,
+  BHNColTmp,
+  startNumber,
+  endNumber,
+} from "./config/keys.js";
 
 import { printTime } from "./printTime.js";
 

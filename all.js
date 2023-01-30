@@ -7,9 +7,12 @@ import {
   BHNColTmp,
   startNumber,
   endNumber,
+  dstColName
 } from "./config/keys.js";
 
 import { printTime } from "./printTime.js";
+
+import logger from "./logger.js";
 
 let client;
 const main = async () => {
@@ -21,8 +24,11 @@ const main = async () => {
     const db = client.db(srcDBName);
     const dstDB = client.db(dstDBName);
 
-    for (let i = startNumber; i <= endNumber; i++) {
+    for (let i = startNumber + 6; i <= endNumber; i++) {
+
       console.log(i);
+      logger.info(`fileNumber: ${i}`);
+
       printTime();
 
       const srcCollName = `${mainColTmp}${i}`;
@@ -30,7 +36,7 @@ const main = async () => {
       const collectionMain = db.collection(srcCollName);
       const collectionBHN = db.collection(`${BHNColTmp}${i}`);
 
-      const differencesCollection = dstDB.collection("differences");
+      const differencesCollection = dstDB.collection(dstColName);
 
       const PMIDS = await collectionMain
         .aggregate([
@@ -50,10 +56,13 @@ const main = async () => {
       keys = keys.filter((ele) => !unwantedKeys.includes(ele));
 
       console.log(PMIDS.length);
+      logger.info(`number of unique PMs: ${PMIDS.length}`)
 
       for (let j = 0; j < PMIDS.length; j++) {
         // console.log(j);
         const PMID = PMIDS[j]["Procedure Messages"];
+
+        logger.debug(PMID);
 
         const tmp1 = await collectionMain.findOne({
           "Procedure Messages": PMID,

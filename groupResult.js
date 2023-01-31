@@ -1,35 +1,25 @@
-const mongoClient = require("mongodb").MongoClient;
-const mongoUrl = require("./config/keys").mongoUrl;
+import { MongoClient } from "mongodb";
+import { mongoUrl, dstDBName, dstColName } from "./config/keys.js";
 
-const testResultDBName = "testResult";
-const testResultCollectionName = "diffrences";
 let client;
-async function main() {
+const main = async () => {
   try {
-    client = await mongoClient.connect(mongoUrl);
+    client = await MongoClient.connect(mongoUrl);
     console.log("connected to db");
 
-    const diffrenceCollection = client
-      .db(testResultDBName)
-      .collection(testResultCollectionName);
-    // const result =
-    for(let i =1; i <=3; i++){
-        console.log(i)
-        await diffrenceCollection
+    const differenceCollection = client.db(dstDBName).collection(dstColName);
+    await differenceCollection
       .aggregate(
         [
-          {
-            $match: { fileNumber: i },
-          },
           {
             $group: {
               _id: {
                 fieldName: "$fieldName",
                 mainValue: "$mainValue",
                 bhnValue: "$bhnValue",
+                fileNumber: "$fileNumber",
               },
               value: { $sum: 1 },
-              fileNumber: { $first: "$fileNumber" },
             },
           },
           {
@@ -38,7 +28,7 @@ async function main() {
           {
             $merge: {
               into: {
-                db: testResultDBName,
+                db: dstDBName,
                 coll: "grouped",
               },
             },
@@ -47,15 +37,12 @@ async function main() {
         { allowDiskUse: true }
       )
       .toArray();
-    }
-    
-    // console.log(result);
 
     await client.close();
   } catch (err) {
     console.error(err);
     await client.close();
   }
-}
+};
 
 main();

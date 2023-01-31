@@ -7,7 +7,7 @@ import {
   BHNColTmp,
   startNumber,
   endNumber,
-  dstColName
+  dstColName,
 } from "./config/keys.js";
 
 import { printTime } from "./printTime.js";
@@ -24,8 +24,7 @@ const main = async () => {
     const db = client.db(srcDBName);
     const dstDB = client.db(dstDBName);
 
-    for (let i = startNumber + 6; i <= endNumber; i++) {
-
+    for (let i = startNumber; i <= endNumber; i++) {
       console.log(i);
       logger.info(`fileNumber: ${i}`);
 
@@ -56,7 +55,7 @@ const main = async () => {
       keys = keys.filter((ele) => !unwantedKeys.includes(ele));
 
       console.log(PMIDS.length);
-      logger.info(`number of unique PMs: ${PMIDS.length}`)
+      logger.info(`number of unique PMs: ${PMIDS.length}`);
 
       for (let j = 0; j < PMIDS.length; j++) {
         // console.log(j);

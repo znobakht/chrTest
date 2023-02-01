@@ -24,7 +24,7 @@ const main = async () => {
     const db = client.db(srcDBName);
     const dstDB = client.db(dstDBName);
 
-    for (let i = startNumber + 17; i <= endNumber; i++) {
+    for (let i = startNumber + 16; i <= endNumber; i++) {
       console.log(i);
       logger.info(`fileNumber: ${i}`);
 
@@ -61,7 +61,7 @@ const main = async () => {
         // console.log(j);
         const PMID = PMIDS[j]["Procedure Messages"];
 
-        logger.debug(`PMID: ${PMID}, j: ${j}`);
+        logger.debug(`fileNumber: ${i}, PMID: ${PMID}, j: ${j}`);
 
         const tmp1 = await collectionMain.findOne({
           "Procedure Messages": PMID,

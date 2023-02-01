@@ -9,7 +9,7 @@ async function main() {
     client = await MongoClient.connect(mongoUrl);
     console.log("connected to db");
     let collection = client.db(dstDBName).collection(collectionName);
-    await collection.deleteMany({ fileNumber: "main_file_huwavei_CHR3" });
+    await collection.deleteMany({ fileNumber: "main_file_huwavei_20_CHR18" });
     console.log("they have been deleted completely")
     client.close();
   } catch (err) {

@@ -7,7 +7,7 @@ const logger = createLogger({
   transports: [
     //new transports:
     new transports.File({
-      filename: "logs/example.log",
+      filename: "logs/17remained.log",
     }),
   ],
 });

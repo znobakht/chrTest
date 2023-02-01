@@ -24,7 +24,7 @@ const main = async () => {
     const db = client.db(srcDBName);
     const dstDB = client.db(dstDBName);
 
-    for (let i = startNumber; i <= endNumber; i++) {
+    for (let i = startNumber + 17; i <= endNumber; i++) {
       console.log(i);
       logger.info(`fileNumber: ${i}`);
 

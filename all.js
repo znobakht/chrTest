@@ -61,7 +61,7 @@ const main = async () => {
         // console.log(j);
         const PMID = PMIDS[j]["Procedure Messages"];
 
-        logger.debug(PMID);
+        logger.debug(`PMID: ${PMID}, j: ${j}`);
 
         const tmp1 = await collectionMain.findOne({
           "Procedure Messages": PMID,

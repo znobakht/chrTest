@@ -24,7 +24,7 @@ const main = async () => {
     const db = client.db(srcDBName);
     const dstDB = client.db(dstDBName);
 
-    for (let i = 17; i <= 17; i++) {
+    for (let i = 18; i <= 18; i++) {
       console.log(i);
       logger.info(`fileNumber: ${i}`);
 
@@ -57,7 +57,7 @@ const main = async () => {
       console.log(PMIDS.length);
       logger.info(`number of unique PMs: ${PMIDS.length}`);
 
-      for (let j = 13336; j < PMIDS.length; j++) {
+      for (let j = 13283; j < PMIDS.length; j++) {
         // console.log(j);
         const PMID = PMIDS[j]["Procedure Messages"];
 

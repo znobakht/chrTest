@@ -15,6 +15,7 @@ let client;
 const main = async () => {
   try {
     client = await MongoClient.connect(mongoUrl);
+    console.log("connected to db")
     const DB = client.db(dstDBName);
     const srcColl = DB.collection(srcColName);
     printTime();

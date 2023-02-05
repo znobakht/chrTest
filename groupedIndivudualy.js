@@ -6,7 +6,7 @@ import {
   endNumber,
   mainColTmp,
   groupedCollTmp,
-} from "./config/keys15.js";
+} from "./config/keys20.js";
 import logger from "./logger.js";
 import { printTime } from "./printTime.js";
 

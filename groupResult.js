@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { mongoUrl, dstDBName, dstColName } from "./config/keys.js";
+import { mongoUrl, dstDBName, dstColName } from "./config/keys20.js";
 
 let client;
 const main = async () => {

@@ -8,8 +8,8 @@ import {
   mainColTmp,
   groupedCollTmp,
 } from "./config/keys15.js";
-import logger from "./logger";
-import { printTime } from "./printTime";
+import logger from "./logger.js";
+import { printTime } from "./printTime.js";
 
 let client;
 const main = async () => {

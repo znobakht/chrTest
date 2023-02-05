@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 import {
   mongoUrl,
-  dstColName as srcColName,
   dstDBName,
   startNumber,
   endNumber,
@@ -17,7 +16,7 @@ const main = async () => {
     client = await MongoClient.connect(mongoUrl);
     console.log("connected to db")
     const DB = client.db(dstDBName);
-    const srcColl = DB.collection(srcColName);
+    const srcColl = DB.collection(groupedCollTmp);
     printTime();
     for (let i = startNumber; i <= endNumber; i++) {
       const fileNumber = `${mainColTmp}${i}`;

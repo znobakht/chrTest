@@ -23,6 +23,8 @@ const main = async () => {
       const fileNumber = `${mainColTmp}${i}`;
       const dstColName = `${groupedCollTmp}${i}`;
 
+      console.log(i);
+
       await srcColl
         .aggregate([
           {

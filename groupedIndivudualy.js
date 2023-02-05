@@ -14,7 +14,7 @@ let client;
 const main = async () => {
   try {
     client = await MongoClient.connect(mongoUrl);
-    console.log("connected to db")
+    console.log("connected to db");
     const DB = client.db(dstDBName);
     const srcColl = DB.collection(groupedCollTmp);
     printTime();
@@ -39,9 +39,8 @@ const main = async () => {
           },
         ])
         .toArray();
-
-      await client.close();
     }
+    await client.close();
   } catch (err) {
     logger.error(err);
     console.log(err);

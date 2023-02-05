@@ -28,7 +28,7 @@ const main = async () => {
         .aggregate([
           {
             $match: {
-              fileNumber: fileNumber,
+              "_id.fileNumber": fileNumber,
             },
           },
           {

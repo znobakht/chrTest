@@ -8,7 +8,7 @@ import {
   startNumber,
   endNumber,
   dstColName,
-} from "./config/keys15.js";
+} from "./config/keys20.js";
 
 import { printTime } from "./printTime.js";
 
